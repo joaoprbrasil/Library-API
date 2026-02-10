@@ -42,7 +42,10 @@ public class Livro {
     @Column(name = "preco", precision = 18, scale = 2, nullable = false)
     private BigDecimal preco; // ou private Double preco;
 
-    @ManyToOne
+    @ManyToOne(
+            //cascade = CascadeType.ALL // Deleta o autor ao deletar o produto
+            fetch = FetchType.LAZY // FetchType.EAGER carrega tudo da entidade e entidades estrangeiras
+    )
     @JoinColumn(name = "id_autor", nullable = false)
     private Autor autor;
 

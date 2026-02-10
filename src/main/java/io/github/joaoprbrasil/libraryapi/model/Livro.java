@@ -10,6 +10,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "livro")
 @Data // Cria os getters, setters, toString, equals e hashCode, argsConstructor
+@ToString(exclude = "autor")
 
 //@Getter@Setter
 //@ToString

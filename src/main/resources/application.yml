@@ -7,3 +7,7 @@ spring:
     password: postgres
     driver-class-name: org.postgresql.Driver
     # driverClassName: org.postgresql.Driver # Pode usar camelCase para substituir os tracinhos
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

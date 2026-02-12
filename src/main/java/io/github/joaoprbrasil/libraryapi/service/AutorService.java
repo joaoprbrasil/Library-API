@@ -5,6 +5,7 @@ import io.github.joaoprbrasil.libraryapi.model.Autor;
 import io.github.joaoprbrasil.libraryapi.repository.AutorRepository;
 import io.github.joaoprbrasil.libraryapi.repository.LivroRepository;
 import io.github.joaoprbrasil.libraryapi.validator.AutorValidator;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,20 +14,12 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor // Gera construtor das dependencias
 public class AutorService {
 
     private final AutorRepository repository;
     private final AutorValidator validator;
     private final LivroRepository livroRepository;
-
-
-    public AutorService(AutorRepository repository,
-                        AutorValidator validator,
-                        LivroRepository livroRepository){
-        this.repository = repository;
-        this.validator = validator;
-        this.livroRepository = livroRepository;
-    }
 
     public Autor salvar(Autor autor){
         validator.validar(autor);
